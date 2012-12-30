@@ -24,7 +24,7 @@ else:
 for group in copyGroups:
     subjectList = os.listdir(os.path.join(dataDirectory,group))
     for subject in subjectList:
-        subfolder = ''.join([item for item in os.listdir(os.path.join(dataDirectory,group,subject)) if re.match('[0-9]|[A-Za-z]',item))
+        subfolder = ''.join([item for item in os.listdir(os.path.join(dataDirectory,group,subject)) if re.match('[0-9]|[A-Za-z]',item)])
         imageFolders = os.listdir(os.path.join(dataDirectory,group,subject,subfolder))
         T1 = t1.match(imageFolders)
         REST = rest.match(imageFolders)
