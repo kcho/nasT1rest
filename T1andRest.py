@@ -28,8 +28,9 @@ for group in copyGroups:
     subjectList = os.listdir(os.path.join(dataDirectory,group))
     for subject in subjectList:
         subfolders = os.listdir(os.path.join(dataDirectory,group,subject))
-        subfolder = re.findall(r'.*CNT.*|.*RESEARCH.*|.*2011.*|.*2012.*|.*2010.*',' '.join(subfolders))
-        imagefolders = os.listdir(os.path.join(dataDirectory,group,subject,''.join(subfolder)))
+        subfolders = [item for item in subfolders if re.search('\@','item')]
+        print subfolders
+        imagefolders = os.listdir(os.path.join(dataDirectory,group,subject,''.join(subfolders)))
         T1 = t1.findall(' '.join(imagefolders))
         print T1
         REST = rest.findall(' '.join(imagefolders))
